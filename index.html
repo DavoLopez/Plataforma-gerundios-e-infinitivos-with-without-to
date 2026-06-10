@@ -1,133 +1,163 @@
-import React, { useState } from 'react';
-import { BookOpen, Brain, List, Info, ChevronRight } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Master: Gerunds & Infinitives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .nav-btn.active { background-color: #2563eb; color: white; }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-800 p-4 md:p-8">
 
-const VERB_LISTS = {
-  gerund: ["anticipate", "avoid", "can't help", "complete", "consider", "deny", "despise", "discuss", "dislike", "enjoy", "fancy", "finish", "forgive", "imagine", "involve", "keep", "mention", "mind", "miss", "postpone", "practise", "recommend", "report", "resent", "resist", "resume", "risk", "suggest", "tolerate", "understand", "worth"],
-  infinitive: ["afford", "agree", "appear", "arrange", "ask", "choose", "claim", "decide", "demand", "deserve", "expect", "fail", "get", "happen", "hesitate", "hope", "intend", "learn", "manage", "offer", "prepare", "pretend", "promise", "refuse", "seem", "swear", "tend", "threaten", "wait", "want", "wish", "would like"],
-  both: ["can't stand", "continue", "prefer", "start", "forget", "remember", "regret", "stop", "try", "go"]
-};
+    <header class="max-w-4xl mx-auto mb-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+        <h1 class="text-3xl font-bold text-slate-900">6A: Verb + -ing and infinitive with to (*without to)</h1>
+        <p class="text-slate-600 mt-2">Plataforma interactiva basada en la Copia 27 de Gara</p>
+    </header>
 
-export default function GrammarApp() {
-  const [activeTab, setActiveTab] = useState('theory');
-
-  return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 p-4 md:p-8">
-      <header className="max-w-4xl mx-auto mb-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-        <h1 className="text-3xl font-bold text-slate-900">GERUNDIOS (-Ing) And infinitive with/without TO</h1>
-        <p className="text-slate-600 mt-2">Plataforma interactiva basada en la Cátedra de Gara</p>
-      </header>
-
-      <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-8">
-        <nav className="w-full md:w-64 space-y-2">
-          <button onClick={() => setActiveTab('theory')} className={`w-full text-left p-3 rounded-lg font-medium flex items-center gap-2 ${activeTab === 'theory' ? 'bg-blue-600 text-white' : 'bg-white hover:bg-blue-50'}`}>
-            <BookOpen size={20} /> Teoría Explicada
-          </button>
-          <button onClick={() => setActiveTab('lists')} className={`w-full text-left p-3 rounded-lg font-medium flex items-center gap-2 ${activeTab === 'lists' ? 'bg-blue-600 text-white' : 'bg-white hover:bg-blue-50'}`}>
-            <List size={20} /> Listados de Verbos
-          </button>
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8">
+        <nav class="w-full md:w-64 space-y-2">
+            <button onclick="showTab('theory')" id="btn-theory" class="nav-btn w-full text-left p-3 rounded-lg font-medium flex items-center gap-2 bg-blue-600 text-white">Teoría Explicada</button>
+            <button onclick="showTab('lists')" id="btn-lists" class="nav-btn w-full text-left p-3 rounded-lg font-medium flex items-center gap-2 bg-white hover:bg-blue-50">Listados de Verbos</button>
         </nav>
 
-        <main className="flex-1 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
-          {activeTab === 'theory' && <TheoryView />}
-          {activeTab === 'lists' && <ListsView />}
+        <main id="main-content" class="flex-1 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
+            <!-- TEORIA -->
+            <div id="theory" class="tab-content active space-y-8">
+                
+                <!-- GERUND -->
+                <section>
+                    <h2 class="text-2xl font-bold text-blue-700 mb-4">➤ Gerund (verb + -ing)</h2>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-bold text-lg">After prepositions and phrasal verbs</h3>
+                            <p class="text-sm text-slate-600 italic">Nota: Recuerda que después de CUALQUIER preposición (in, at, on, of, for, about, etc.), el verbo siempre debe ir en -ing. "In" es la preposición y "-ing" es el verbo.</p>
+                            <ul class="text-sm text-slate-700 mt-2 italic"><li>• I apologize for interrupting.</li><li>• She asked about making another cup of tea.</li><li>• We talked about going to Italy for our summer vacations.</li></ul>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-bold text-lg">The subject of a sentence (actions)</h3>
+                            <ul class="text-sm text-slate-700 mt-1 italic"><li>• Shopping is my favourite thing to do at weekends.</li><li>• Reading books it's the best way to learn.</li><li>• I like drinking coffee at breakfast.</li></ul>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-bold text-lg">After specific verbs: like, dislike, love, hate, prefer and enjoy</h3>
+                            <ul class="text-sm text-slate-700 mt-1 italic"><li>• I hate washing dishes.</li><li>• I love listening rock music.</li></ul>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-bold text-lg">Other common verbs</h3>
+                            <p class="text-sm text-slate-600">admit, avoid, consider, deny, feel like, finish, imagine, keep, mind, miss, practise, recommend, risk, spend time, stop, suggest.</p>
+                            <ul class="text-sm text-slate-700 mt-1 italic"><li>• She avoided talking about the problem.</li><li>• He suggested meeting later.</li></ul>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-bold text-lg">After set phrases</h3>
+                            <p class="text-sm text-slate-600">can (not) help, be (not) worth, there is no point (Nota: 'There is no point' suele llevar 'in' implícito o explícito, lo que nos lleva a la regla de las preposiciones + -ing).</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- INFINITIVE WITH TO -->
+                <section>
+                    <h2 class="text-2xl font-bold text-blue-700 mb-4">➤ The infinitive with to</h2>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-bold text-lg">After verbs that express intention, decision or promise</h3>
+                            <p class="text-xs text-slate-500">agree, decide, expect, hope, learn, need, plan, promise, refuse, want, would like.</p>
+                            <ul class="text-sm text-slate-700 mt-1 italic"><li>• She decided to go abroad.</li><li>• I hope to see you soon.</li><li>• They refused to pay the bill.</li></ul>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-bold text-lg">After verbs</h3>
+                            <p class="text-xs text-slate-500">afford, ask, forget, help, offer, wish, choose, manage, prepare, pretend, remember, seem, wait.</p>
+                            <ul class="text-sm text-slate-700 mt-1 italic"><li>• I asked him to show me the book.</li><li>• She helped to put away the dishes.</li></ul>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-bold text-lg">After it + adjectives</h3>
+                            <ul class="text-sm text-slate-700 mt-1 italic"><li>• It was nice to see you again Paul.</li><li>• It is important to learn the prepositions.</li></ul>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-bold text-lg">To express a reason or purpose (why)</h3>
+                            <ul class="text-sm text-slate-700 mt-1 italic"><li>• She saves money to buy a car.</li><li>• I tried not to talk about politics to avoid arguing.</li></ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TRICKY VERBS -->
+                <section>
+                    <h2 class="text-2xl font-bold text-red-600 mb-4">BE CAREFUL: Tricky Verbs</h2>
+                    <p class="text-sm text-slate-600 mb-4">Verbs like: forget, stop, remember, go, try and regret can be followed by -ing or infinitive with to but the meaning changes.</p>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-red-500 pl-4"><h3 class="font-bold">Forget</h3><p class="text-sm italic">+ gerund = like a memory / + infinitive = forget something that needs to be done</p><ul class="text-xs text-slate-500 italic"><li>• I will never forget going to the beach with my family when I was 10 years old.</li><li>• I forgot to buy milk at the store.</li></ul></div>
+                        <div class="border-l-4 border-red-500 pl-4"><h3 class="font-bold">Remember</h3><p class="text-sm italic">+ gerund = (like a memory) / + infinitive = remember something that needs to be done</p><ul class="text-xs text-slate-500 italic"><li>• She remembers watching this TV show when she was young.</li><li>• I remembered to bring the cake.</li></ul></div>
+                        <div class="border-l-4 border-red-500 pl-4"><h3 class="font-bold">Regret</h3><p class="text-sm italic">+ gerund = regret a past action / + infinitive = feel sorry to tell somebody about something (formal)</p><ul class="text-xs text-slate-500 italic"><li>• I regret eating too much last night.</li><li>• We regret to inform you that your application has been denied.</li></ul></div>
+                        <div class="border-l-4 border-red-500 pl-4"><h3 class="font-bold">Stop</h3><p class="text-sm italic">+ gerund = stop a continuous action or habit / + infinitive = stop something to do another action</p><ul class="text-xs text-slate-500 italic"><li>• She stopped smoking.</li><li>• She stopped to eat.</li></ul></div>
+                        <div class="border-l-4 border-red-500 pl-4"><h3 class="font-bold">Go</h3><p class="text-sm italic">+ gerund = recreative activities/sports / + infinitive = movement with purpose</p><ul class="text-xs text-slate-500 italic"><li>• I went swimming.</li><li>• I went to buy bread.</li></ul></div>
+                    </div>
+                </section>
+
+                <!-- INFINITIVE WITHOUT TO -->
+                <section>
+                    <h2 class="text-2xl font-bold text-slate-800 mb-4">➤ The infinitive without to</h2>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-slate-500 pl-4">
+                            <h3 class="font-bold">After modal verbs</h3>
+                            <p class="text-sm text-slate-600">can, could, may, might, will, shall, would, should, must, but NOT ought to and have to.</p>
+                        </div>
+                        <div class="border-l-4 border-slate-500 pl-4">
+                            <h3 class="font-bold">After some verbs of perception</h3>
+                            <p class="text-sm text-slate-600">see, watch, hear, notice, feel, sense.</p>
+                            <ul class="text-sm text-slate-700 mt-1 italic"><li>• I watched a film.</li><li>• If you feel ill, go to the doctor's.</li><li>• I saw you walking down the street.</li><li>• My dog heard a noise and started barking.</li></ul>
+                        </div>
+                        <div class="border-l-4 border-slate-500 pl-4">
+                            <h3 class="font-bold">After make, let and help</h3>
+                            <ul class="text-sm text-slate-700 mt-1 italic"><li>• You made me cry.</li><li>• Let me help you with the heavy bags.</li></ul>
+                        </div>
+                        <div class="border-l-4 border-slate-500 pl-4">
+                            <h3 class="font-bold">After expressions with 'why'</h3>
+                            <ul class="text-sm text-slate-700 mt-1 italic"><li>• Why you go clubbing the night before an exam?</li></ul>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- LISTADOS -->
+            <div id="lists" class="tab-content space-y-6">
+                <h2 class="text-xl font-bold mb-4">Listados de Verbos</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 p-4 rounded-xl border"><h3 class="font-bold text-blue-800 mb-2">Verbos + Gerund (-ing)</h3><div id="list-gerund" class="flex flex-wrap gap-1 text-xs"></div></div>
+                    <div class="bg-slate-50 p-4 rounded-xl border"><h3 class="font-bold text-blue-800 mb-2">Verbos + Infinitive (to)</h3><div id="list-infinitive" class="flex flex-wrap gap-1 text-xs"></div></div>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                    <h3 class="font-bold text-blue-800 mb-2">Verbos que admiten AMBOS</h3>
+                    <div id="list-both" class="flex flex-wrap gap-2 text-xs"></div>
+                </div>
+            </div>
         </main>
-      </div>
     </div>
-  );
-}
 
-function TheoryView() {
-  return (
-    <div className="space-y-8">
-      <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
-        <h2 className="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2"><Info /> Conceptos Clave</h2>
-        <div className="space-y-4 text-sm text-blue-800">
-            <p><strong>Gerundio (-ing):</strong> Funciona como un <em>sustantivo</em>. Es "la cosa de hacer algo". En español, equivale a menudo al infinitivo (Ej: "Nadar es divertido" {'>'} "Swimming is fun").</p>
-            <p><strong>Infinitivo (to + verbo):</strong> Suele expresar <em>intención, propósito o futuro</em>. El "to" apunta hacia adelante.</p>
-            <div className="bg-white p-4 rounded border border-blue-200 italic font-medium">
-                <strong>Regla de ORO (Preposiciones):</strong> Después de CUALQUIER preposición (in, at, on, of, for, about, etc.), el verbo DEBE ir en -ing. 
-                <br/>
-                <em>Nota aclaratoria:</em> "In" es la preposición y "-ing" es la forma del verbo. Siempre que veas una preposición, el siguiente verbo se convierte en sustantivo mediante el "-ing".
-            </div>
-        </div>
-      </div>
+    <script>
+        const VERB_LISTS = {
+            gerund: ["anticipate", "avoid", "can't help", "complete", "consider", "delay", "deny", "despise", "discuss", "dislike", "enjoy", "fancy", "finish", "forgive", "imagine", "involve", "keep", "mention", "mind", "miss", "postpone", "practise", "recommend", "report", "resent", "resist", "resume", "risk", "suggest", "tolerate", "understand", "worth"],
+            infinitive: ["afford", "agree", "appear", "arrange", "ask", "choose", "claim", "decide", "demand", "deserve", "expect", "fail", "get", "happen", "hesitate", "hope", "intend", "learn", "manage", "offer", "prepare", "pretend", "promise", "refuse", "seem", "swear", "tend", "threaten", "wait", "want", "wish", "would like"],
+            both: ["can't stand", "continue", "prefer", "start", "forget", "remember", "regret", "stop", "try", "go"]
+        };
 
-      <section>
-        <h2 className="text-2xl font-bold text-blue-700 mb-4">1. El Gerundio (-ing)</h2>
-        <div className="space-y-4">
-          <TheoryItem title="Después de Preposiciones y Phrasal Verbs" explanation="Las preposiciones (in, at, on...) exigen un sustantivo después. Como los verbos no son sustantivos, les añadimos -ing para transformarlos." examples={["I apologize for interrupting.", "She asked about making tea.", "We talked about going to Italy."]} />
-          <TheoryItem title="Sujeto de la oración" explanation="Cuando una acción es el sujeto, usamos -ing para tratarla como un concepto o sustantivo." examples={["Shopping is my favourite.", "Reading books is useful.", "Drinking coffee helps."]} />
-          <TheoryItem title="Después de verbos específicos" explanation="Ciertos verbos 'sienten' que la acción que los sigue es un proceso ya conocido o experimenta: like, dislike, love, hate, prefer and enjoy" examples={["I hate washing dishes.", "I love listening to rock.", "I enjoy reading."]} />
-          <TheoryItem title="Otros verbos comunes" explanation="Verbos como admit, avoid, consider, deny, feel like, finish, imagine, keep, mind, miss, practise, recommend, risk, spend time, stop, suggest." examples={["She avoided talking about the problem.", "He suggested meeting later.", "I finished eating."]} />
-          <TheoryItem title="Expresiones fijas (Set phrases)" explanation="Ejemplos: can't help, worth, there is no point. (Nota: 'There is no point in...' lleva 'in' como preposición, lo que fuerza el uso de -ing)." examples={["I can't help laughing.", "It is worth visiting.", "There is no point in complaining."]} />
-        </div>
-      </section>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('bg-blue-600', 'text-white'));
+            document.getElementById('btn-' + tabId).classList.add('bg-blue-600', 'text-white');
+        }
 
-      <section>
-        <h2 className="text-2xl font-bold text-blue-700 mb-4">2. El Infinitivo con 'to'</h2>
-        <div className="space-y-4">
-          <TheoryItem title="Después de verbos que expresa intención, decisión o promesa" explanation="El 'to' actúa como una flecha hacia el futuro, indicando un plan o decisión: agree, decide, expect, hope, learn, need, plan, promise, refuse, want, would like" examples={["She decided to go abroad.", "I hope to see you soon.", "They refused to pay."]} />
-          <TheoryItem title="Verbos específicos" explanation="Verbos como afford, ask, forget, help, offer, wish, choose, manage, prepare, pretend, remember, seem, wait." examples={["I asked him to show me the book.", "She helped to put away the dishes.", "I remembered to bring the cake."]} />
-          <TheoryItem title="Después de It + Adjetivos" explanation="Cuando calificamos una acción, el infinitivo actúa como sujeto real." examples={["It was nice to see you again Paul.", "It is important to learn the prepositions."]} />
-          <TheoryItem title="Para expresar un Propósito (Why?)" explanation="Para responder a '¿Por qué?', el infinitivo con 'to' explica la razón." examples={["She saves money to buy a car.", "I tried not to talk to avoid arguing."]} />
-        </div>
-      </section>
-
-      <section>
-        <h2 className="text-2xl font-bold text-red-600 mb-4">3. Los "Tricky Verbs"</h2>
-        <p className="text-sm text-slate-600 mb-4">Se llaman "Tricky" (capciosos) porque el significado cambia radicalmente. 
-        <br/>- <strong>Gerundio (-ing):</strong> Enfocado en el recuerdo, hábito o experiencia vivida.
-        <br/>- <strong>Infinitivo (to):</strong> Enfocado en una tarea, objetivo, obligación o cambio de plan.</p>
-        <div className="space-y-4">
-            <TheoryItem title="Forget" examples={["I'll never forget going to the beach (Memoria).", "I forgot to buy milk (Tarea olvidada/no hecha)."]} />
-            <TheoryItem title="Remember" examples={["She remembers watching this show (Memoria).", "I remembered to bring the cake (Tarea cumplida)."]} />
-            <TheoryItem title="Regret" examples={["I regret eating too much (Arrepentimiento por acción pasada).", "We regret to inform you (Formal: sentimos decirte)."]} />
-            <TheoryItem title="Stop" examples={["She stopped smoking (Hábito/acción continua).", "She stopped to eat (Pausó para hacer otra cosa)."]} />
-            <TheoryItem title="Go" examples={["I went swimming (Actividad recreativa/deporte).", "I went to buy bread (Movimiento con propósito)."]} />
-            <TheoryItem title="Try" examples={["Try doing it (Experimento/probar).", "Try to do it (Esfuerzo/hacer lo posible)."]} />
-        </div>
-      </section>
-
-      <section>
-        <h2 className="text-2xl font-bold text-blue-700 mb-4">4. El Infinitivo sin 'to'</h2>
-        <div className="space-y-4 text-sm text-slate-700">
-            <p>Se usa en los siguientes casos:</p>
-            <ul className="list-disc pl-5 space-y-1">
-                <li><strong>Modal verbs:</strong> (can, could, may, might, must, shall, should, will, would...) Pero no en los casos de "ought to", "have to".</li>
-                <li><strong>Verbos de percepción:</strong> (see, watch, hear, notice, feel, sense). <em>Ej: I watched a film.</em></li>
-                <li><strong>Después de Make, let, help:</strong> <em>Ej: You made me cry.</em></li>
-                <li><strong>Expresiones con 'why':</strong> <em>Ej: Why go clubbing the night before an exam?</em></li>
-            </ul>
-        </div>
-      </section>
-    </div>
-  );
-}
-
-function TheoryItem({ title, explanation, examples }) {
-  return (
-    <div className="border-l-4 border-blue-500 pl-4">
-      <h3 className="font-bold text-lg text-slate-900">{title}</h3>
-      {explanation && <p className="text-xs text-slate-500 mb-1">{explanation}</p>}
-      <ul className="text-sm italic text-slate-500 space-y-1 mt-1">
-        {examples.map((ex, i) => <li key={i}>• {ex}</li>)}
-      </ul>
-    </div>
-  );
-}
-
-function ListsView() {
-    return (
-        <div className="space-y-6">
-            <h2 className="text-xl font-bold">Listados de Verbos (Copia 27)</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-slate-50 p-4 rounded-xl border"><h3 className="font-bold text-blue-800 mb-2">Verbos + Gerund (-ing)</h3><div className="flex flex-wrap gap-1">{VERB_LISTS.gerund.map(v => <span key={v} className="bg-white px-2 py-1 rounded text-xs border shadow-sm">{v}</span>)}</div></div>
-                <div className="bg-slate-50 p-4 rounded-xl border"><h3 className="font-bold text-blue-800 mb-2">Verbos + Infinitive (to)</h3><div className="flex flex-wrap gap-1">{VERB_LISTS.infinitive.map(v => <span key={v} className="bg-white px-2 py-1 rounded text-xs border shadow-sm">{v}</span>)}</div></div>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
-                <h3 className="font-bold text-blue-800 mb-2">Verbos que admiten ambos (con cambio de significado)</h3>
-                <div className="flex flex-wrap gap-2">{VERB_LISTS.both.map(v => <span key={v} className="bg-blue-100 px-3 py-1 rounded-full text-sm font-semibold">{v}</span>)}</div>
-            </div>
-        </div>
-    )
-}
+        const gList = document.getElementById('list-gerund');
+        VERB_LISTS.gerund.forEach(v => gList.innerHTML += `<span class="bg-white px-2 py-1 rounded border shadow-sm">${v}</span>`);
+        
+        const iList = document.getElementById('list-infinitive');
+        VERB_LISTS.infinitive.forEach(v => iList.innerHTML += `<span class="bg-white px-2 py-1 rounded border shadow-sm">${v}</span>`);
+        
+        const bList = document.getElementById('list-both');
+        VERB_LISTS.both.forEach(v => bList.innerHTML += `<span class="bg-blue-100 text-blue-800 px-2 py-1 rounded border border-blue-200 font-medium">${v}</span>`);
+    </script>
+</body>
+</html>
